@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function addPrice(amount) {
+            this.price = amount;
+        }
+
+        function book(title, weight) {
+            this.title = title;
+            this.weight = weight;
+            this.addPrice = addPrice;
+        }
+
+        let mybook = new book("hello", "laji");
+        mybook.addPrice(1212);
+        console.log(mybook.title + mybook.weight + mybook.constructor)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

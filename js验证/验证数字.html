@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--suppress HtmlRequiredLangAttribute -->
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript">
+        function check_qq() {
+            const str = document.getElementById("num").value;
+            if (isNaN(str)) {
+                alert("请输入数字");
+            } else {
+                alert("你输入的是" + str)
+            }
+        }
+    </script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<label for="num"></label><input type="text" name="num" id="num" value=""/>
+<input type="button" value="验证" onclick="check_qq()"/>
+</body>
+
+</html>

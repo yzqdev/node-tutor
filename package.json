@@ -1,0 +1,21 @@
+{
+  "name": "jstutor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "prettier": "^1.18.2",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/frozen521/jstutor.git"
+  },
+  "author": "yzq",
+  "license": "ISC"
+}

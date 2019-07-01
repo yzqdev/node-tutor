@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input id="id"/>
+<input id="name"/>
+<input id="sex"/>
+<button onclick="loadxml()">点我</button>
+<script>
+    function loadxml() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest()
+        }
+        xmlhttp.open('get', 'https://www.easy-mock.com/mock/5c2e05e24da14e2caaac7d0d/testajax/tesajax')
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                alert("hello");
+                const r = JSON.parse(xmlhttp.responseText);
+                console.log(r);
+                document.getElementById('id').value = r.data.id
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

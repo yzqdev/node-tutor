@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		function changetext(id) {
+			id.innerHTML = "Ooops!";
+		}
+		document.getElementById("myBtn").onclick = function () {
+			displayDate();
+		};
+	</script>
+
+</head>
+
+<body>
+	<h1 onclick="changetext(this)">Click on this text!</h1>
+	<button id="myBtn" onclick="displayDate()">Try it</button>
+</body>
+
+</html>

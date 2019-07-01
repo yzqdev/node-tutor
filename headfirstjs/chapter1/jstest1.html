@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        function greetUser() {
+            alert("hello new user")
+        }
+
+        function touchRock() {
+            var username = prompt("input you name", "yzq");
+            alert("hello" + username + "!");
+            setTimeout("    document.getElementById(\"roke\").src = \"img/2.jpg\";", 4000)
+
+        }
+
+        function resizeRock() {
+            document.getElementById("roke").style.height = (document.body.clientHeight - 100) * 0.9;
+        }
+    </script>
+</head>
+<body onload="greetUser();resizeRock()" onresize="alert('helelleleeleleleel')">
+<img src="img/1.jpg" id="roke" alt="" onclick="touchRock()"/>
+</body>
+</html>

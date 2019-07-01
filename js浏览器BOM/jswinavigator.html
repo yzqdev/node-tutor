@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--window.navigator 对象包含有关访问者浏览器的信息-->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	</script>
+</head>
+
+<body>
+	<div id="example"></div>
+	<!--navigator 数据可被浏览器使用者更改
+一些浏览器对测试站点会识别错误
+浏览器无法报告晚于浏览器发布的新操作系统-->
+	<script>
+		txt = "<p>Browser CodeName: " + navigator.appCodeName + "</p>";
+		txt += "<p>Browser Name: " + navigator.appName + "</p>";
+		txt += "<p>Browser Version: " + navigator.appVersion + "</p>";
+		txt += "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>";
+		txt += "<p>Platform: " + navigator.platform + "</p>";
+		txt += "<p>User-agent header: " + navigator.userAgent + "</p>";
+		txt += "<p>User-agent language: " + navigator.systemLanguage + "</p>";
+
+		document.getElementById("example").innerHTML = txt;
+	</script>
+</body>
+
+</html>

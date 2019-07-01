@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //创建数组,赋值
+        var mycars = new Array();
+        mycars[0] = "Saab";
+        mycars[1] = "Volvo";
+        mycars[2] = "BMW";
+        //所有的JavaScript变量都是对象。数组元素是对象。函数是对象。
+        //因此，你可以在数组中有不同的变量类型。
+        //你可以在一个数组中包含对象元素、函数、数组：
+        myArray[0] = Date.now;
+        myArray[1] = myFunction;
+        myArray[2] = myCars;
+        //数组方法和属性
+        var x = myCars.length // the number of elements in myCars
+        var y = myCars.indexOf("Volvo") // the index position of "Volvo"
+        //创建新方法
+        Array.prototype.ucase = function () {
+            for (i = 0; i < this.length; i++) {
+                this[i] = this[i].toUpperCase();
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
