@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "dev-serve": "vue-cli-service serve --mode development",
+    "dev-build": "vue-cli-service build --mode devbuild",
+    "prod-build": "vue-cli-service build --mode production",
+    "ncu": "ncu &&ncu -u&&yarn"
+  },
   "dependencies": {
-    "jquery": "^3.4.1",
-    "prettier": "^1.18.2",
-    "lodash": "^4.17.11"
+    "prettier": "^1.19.1",
+    "lodash": "^4.17.15"
+
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+
   "repository": {
     "type": "git",
     "url": "https://gitee.com/frozen521/jstutor.git"
