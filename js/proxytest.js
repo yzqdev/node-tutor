@@ -1,14 +1,25 @@
-array = ["apple","boy"];
-splices = array.splice(0,3,"cat");
-console.log(array); // ["cat"]
-console.log(splices); // ["apple", "boy"], 可见当deleteCount大于数组start之后的元素总和时,start及之后的元素都将被删除
-//koala
-const arr = [0, 1, 2, 3, 4];
-let sum = arr.reduce((accumulator, currentValue, currentIndex, array) => {
-    return accumulator + currentValue;
-}, 10);
-
-console.log( sum );
-// 20
-console.log( arr );
-// [0, 1, 2, 3, 4]
+const obj = {
+    name: 'app',
+    age: '18',
+    a: {
+        b: 1,
+        c: 2,
+    },
+}
+const p = new Proxy(obj, {
+    get(target, propKey, receiver) {
+        console.log('你访问了' + propKey);
+        return Reflect.get(target, propKey, receiver);
+    },
+    set(target, propKey, value, receiver) {
+        console.log('你设置了' + propKey);
+        console.log('新的' + propKey + '=' + value);
+        Reflect.set(target, propKey, value, receiver);
+    }
+});
+p.age = '20';
+console.log(p.age);
+p.newPropKey = '新属性';
+console.log(p.newPropKey);
+p.a.d = '这是obj中a的属性';
+console.log(p.a.d);

@@ -1,6 +1,25 @@
-let dateBegin = '2018/08/28 04:56:38'; // 初始时间
-dateBegin = new Date(dateBegin);
-// Mon Aug 28 2017 04:56:38 GMT+0800 (中国标准时间)
-// 上面是Date对象的数据形式
-let dateEnd = new Date(); // 第二个数据通常是当前时间
-console.log(dateBegin)
+function curry(fn) {
+    if (fn.length === 0) {
+        return fn;
+    }
+
+    function _curried(depth, args) {
+        return function(newArgument) {
+            if (depth - 1 === 0) {
+                return fn(...args, newArgument);
+            }
+            return _curried(depth - 1, [...args, newArgument]);
+        };
+    }
+
+    return _curried(fn.length, []);
+}
+
+function add(a, b) {
+    return a + b;
+}
+
+var curriedAdd = curry(add);
+var addFive = curriedAdd(5);
+
+var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
