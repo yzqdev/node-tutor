@@ -1,0 +1,335 @@
+{
+  //**************************eslint默认配置**************************************************//
+  //  "off" or "0"：表示这个规则关闭，
+  //"warn" or "1"：表示这个规则是一个警告处理
+  //"error" or "2"：表示这个规则是一个错误处理
+  "root": true,
+  //**************************解释器**************************************************//
+//  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "globals": {
+    "$": true,
+    "define": true,
+    "require": true
+  },
+  "env": {
+    "amd": true,
+    "jquery": true,
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "commonjs": true
+  },
+//  "overrides": [
+//    {
+//      "files": [
+//        "**/__tests__/*.{j,t}s?(x)"
+//      ],
+//      "env": {
+//        "mocha": true
+//      }
+//    }
+//  ],
+  "extends": ["plugin:prettier/recommended"],
+  //********************************prettier配置*****************************************//
+  //  "extends": [
+  //    "plugin:vue/essential",
+  //    "eslint:recommended"
+  //  ],
+  //********************************vue默认配置***********************************************//
+//  "extends": [
+//    "plugin:vue/essential",
+//    "@vue/prettier"
+//  ],
+
+  //*******************************vue prettier配置*****************************************//
+  //  "extends": "eslint:recommended",
+  //**************************eslint默认配置**************************************************//
+  "rules": {
+    //    "quote-props": "error",
+    "no-compare-neg-zero": "error",
+    "wrap-iife": "error",
+    "wrap-regex": "error",
+    "no-cond-assign": ["error", "always"],
+    "camelcase": [
+      "error",
+      {
+        "properties": "never"
+      }
+    ],
+    //不检查属性名称{"properties": "never"}
+    "getter-return": "error",
+    //强制在 getter 属性中出现一个 return 语句
+    "no-await-in-loop": "error",
+    //禁止在循环中 出现 await
+    "no-constant-condition": "error",
+    //禁止在条件中使用常量表达式
+    "no-control-regex": "error",
+    //禁止在正则表达式中使用控制字符
+    "no-debugger": "error",
+    //禁用 debugger
+    "no-dupe-args": "error",
+    //禁止在 function 定义中出现重复的参数
+    "no-dupe-keys": "error",
+    //禁止在对象字面量中出现重复的键
+    "no-duplicate-case": "error",
+    //禁止重复 case 标签
+    "no-empty": "error",
+    //禁止空块语句
+    "no-empty-character-class": "error",
+    //禁止在正则表达式中出现空字符集
+    "no-ex-assign": "error",
+    //禁止对 catch 子句中的异常重新赋值
+    "no-extra-boolean-cast": "error",
+    //禁止不必要的布尔类型转换
+    "no-extra-parens": "warn",
+    //禁止冗余的括号
+    "no-extra-semi": "error",
+    //禁用不必要的分号
+    "no-func-assign": "error",
+    //禁止对 function 声明重新赋值
+    "no-inner-declarations": "error",
+    //禁止在嵌套的语句块中出现变量或 function 声明
+    "no-invalid-regexp": "error",
+    //禁止在 RegExp 构造函数中出现无效的正则表达式
+    "no-irregular-whitespace": "error",
+    //禁止不规则的空白
+    "no-obj-calls": "error",
+    //禁止将全局对象当作函数进行调用
+    "no-prototype-builtins": "error",
+    //禁止直接使用 Object.prototypes 的内置属性
+    "no-regex-spaces": "error",
+    //禁止正则表达式字面量中出现多个空格
+    "no-sparse-arrays": "error",
+    //禁用稀疏数组
+    "no-template-curly-in-string": "error",
+    //禁止在常规字符串中出现模板字面量占位符语法
+    "no-unexpected-multiline": "error",
+    //禁止使用令人困惑的多行表达式
+    "no-unreachable": "error",
+    //禁止在 return、throw、continue 和 break 语句后出现不可达代码
+    "no-unsafe-finally": "error",
+    //禁止在 finally 语句块中出现控制流语句
+    "no-unsafe-negation": "error",
+    //禁止对关系运算符的左操作数使用否定操作符
+    "no-undef": "warn",
+    "use-isnan": "error",
+    //要求调用 isNaN()检查 NaN
+
+    "valid-typeof": "error",
+    //强制 typeof 表达式与有效的字符串进行比较
+    "semi": ["error", "always"],
+    //使用分号
+    "no-unused-vars": "warn",
+    "quotes": ["error", "backtick"],
+    "quote-props": ["error","as-needed", { "keywords": true }],
+    //使用双引号
+
+    "no-shadow-restricted-names": "error",
+    "no-native-reassign": "error",
+    // *****************************代码风格**********************************************//
+    "array-bracket-spacing": "warn",
+    "no-octal-escape": "error",
+    "no-undefined": "error",
+    "no-unmodified-loop-condition": "error",
+    //该规则在数组括号内强制实现一致的间距
+    "array-callback-return": "error",
+    //规则强制在数组方法的回调中使用语句
+    "operator-assignment": ["error", "always"],//要求或禁止在可能的情况下使用简化的赋值操作符
+    "guard-for-in": "error",
+    //要求 for-in 循环中有一个 if 语句
+    "no-empty-pattern": "error",
+    //禁止使用空解构模式
+    "no-empty-function": "error",
+    //禁止出现空函数
+    "no-eq-null": "error",
+    //禁止在没有类型检查操作符的情况下与 null 进行比较
+    "no-eval": "error",
+    "no-extra-bind": "error",
+    "no-fallthrough": "error",
+    "require-await": "error",
+    //禁止 case 语句落空
+    "no-global-assign": "error",
+    //禁止对原生对象或只读的全局对象进行赋值
+    "no-invalid-this": "error",
+    //禁止 this 关键字出现在类和类对象之外
+    "no-octal": "error",
+    //禁用八进制字面量
+    "no-param-reassign": "error",
+    //禁止对 function 的参数进行重新赋值
+    "no-redeclare": [
+      2,
+      {
+        "builtinGlobals": true
+      }
+    ],
+    //禁止对 function 的参数进行重新赋值
+    "no-self-assign": "error",
+    "no-useless-catch": "error",
+    "max-classes-per-file": ["error", 2],
+
+    "no-delete-var": "error",
+    "no-case-declarations": "error",
+    //不允许在 case 子句中使用词法声明
+    //规则在箭头函数的箭头（=>）之前/之后标准化间距样式
+//    "array-element-newline": 2,//该规则强制数组元素间的换行。
+    "capitalized-comments": [
+      "error",
+      "always",
+      {
+        "ignorePattern": "pragma|ignored",
+        "ignoreInlineComments": true
+      }
+    ],
+    "class-methods-use-this": "error",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore"
+      }
+    ],
+    "complexity": [
+      "error",
+      {
+        "max": 4
+      }
+    ],
+    //代码复杂度最多
+    "default-case": "error",
+//    "eol-last": ["warn", "always"],
+//    "linebreak-style": "error",
+    "eqeqeq": ["error", "always"],
+    //强制===三等号
+    "for-direction": "error",
+    //for语法防止死循环
+    "func-call-spacing": [0, "always"],
+    //此规则要求或禁止函数名称和调用它的左括号之间的空格
+    "func-name-matching": ["error", "always"],
+    //此规则要求函数名称与它们所分配的变量或属性的名称相匹配。该规则将忽略属性分配
+    "func-names": ["error", "as-needed"],
+    //该规则可以强制或禁止使用命名函数表达式。
+    "func-style": [
+      "error",
+      "declaration",
+      {
+        "allowArrowFunctions": true
+      }
+    ],
+    //使用函数声明箭头函数
+//    "function-paren-newline": [
+//      "error",
+//      {
+//        "minItems": 4
+//      }
+//    ],
+    //此规则在函数参数或参数的括号内强制执行一致的换行符
+    "no-else-return": 1,
+    "no-multi-spaces": 1,
+    "one-var": ["error", "never"],
+    "one-var-declaration-per-line": ["error", "always"],
+    "prefer-const": "error",
+    "key-spacing": [
+      1,
+      {
+        "beforeColon": false,
+        "afterColon": true
+      }
+    ],
+    "block-scoped-var": "error",
+    "callback-return": "error",
+//    "consistent-return": "error",
+    "accessor-pairs": "error",
+    "dot-location": ["error", "property"],
+    "no-lone-blocks": "error",
+    "no-labels": "error",
+    "no-extend-native": "error",
+    "no-floating-decimal": "error",
+    "no-loop-func": "error",
+    "no-new-func": "error",
+    "no-self-compare": "error",
+    "no-sequences": "error",
+    "no-throw-literal": "error",
+    "no-return-assign": ["error", "always"],
+    "no-unused-expressions": [
+      2,
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
+    "no-useless-call": "error",
+    "no-useless-concat": "error",
+    "no-void": "error",
+    "no-with": "error",
+    "space-infix-ops": "error",
+    "valid-jsdoc": [
+      2,
+      {
+        "requireParamDescription": true,
+        "requireReturnDescription": true
+      }
+    ],
+    //强制使用有效的 JSDoc 注释
+    "no-warning-comments": [
+      2,
+      {
+        "terms": ["todo", "fixme", "any other term"],
+        "location": "anywhere"
+      }
+    ],
+    "curly": "warn",
+    // common js
+    //************************************es2015**********************************************//
+    "arrow-body-style": ["error", "as-needed"],
+    //该规则可以强制或禁止在箭头函数体的周围使用大括号。
+    "arrow-parens": ["warn", "as-needed"],
+//    "arrow-spacing": [
+//      "error",
+//      {
+//        "before": false,
+//        "after": true
+//      }
+//    ],//这个有prettier托管
+    "constructor-super": "error",
+    "no-const-assign": "error",
+    "no-confusing-arrow": "error",
+    "no-use-before-define": "error",
+    "no-new-symbol": "error",
+    "no-dupe-class-members": "error",
+    "no-duplicate-imports": "error",
+    "no-this-before-super": "error",
+    "no-useless-computed-key": "error",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "error",
+    "no-useless-return": "error",
+    "prefer-arrow-callback": "error",
+    "prefer-destructuring": "error",
+    "prefer-numeric-literals": "error",
+    "prefer-promise-reject-errors": "error",
+    "prefer-reflect": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
+    "require-yield": "error",
+    "sort-imports": "error",
+    "sort-keys": [2,"asc", {"caseSensitive": true, "natural": false, "minKeys": 2}],
+    "sort-vars": "error",
+    "symbol-description": "error",
+    "yield-star-spacing": "error",
+    "template-curly-spacing": "error",
+    "no-label-var": "error",
+    "no-var": "error",
+    // override default options for rules from base configurations
+    "no-class-assign": "error"
+  }
+}

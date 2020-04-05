@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+src/lib
+dist
+src/jqaxiostest/jstest
+jquery-3.4.1.min.js
+bootstap.bundle.min.js
