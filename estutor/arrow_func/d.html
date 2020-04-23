@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      input[type="button"] {
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      input[type="button"]:hover {
+        cursor: pointer;
+        color: #fff;
+        background-color: #0069d9;
+        border-color: #0062cc;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+      }
+    </style><link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/monokai.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+  </head>
+  <body>
+    <input type="button" value="按钮" />
+    <pre>
+class Stack {
+  constructor() {
+    this.stack = [];
+  }
+  push(item) {
+    this.stack.push(item);
+  }
+  pop() {
+    this.stack.pop();
+  }
+  peek() {
+    return this.stack[this.getCount() - 1];
+  }
+  getCount() {
+    return this.stack.length;
+  }
+  isEmpty() {
+    return this.getCount() === 0;
+  }
+}
+const m = new Stack();
+m.push(`pushitem`);
+m.push(`push2`);
+m.pop();
+console.log(m);
+
+    </pre>
+    <script>
+        $('pre').wrap(()=> {
+            return `<pre><code>${$(this).text()}</code></pre>`;
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

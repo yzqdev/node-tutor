@@ -1,4 +1,4 @@
-Function.prototype.mycall = function(context = window, ...args) {
+Function.prototype.mycall = function (context = window, ...args) {
   if (typeof this !== "function") {
     throw new TypeError("Error");
   }

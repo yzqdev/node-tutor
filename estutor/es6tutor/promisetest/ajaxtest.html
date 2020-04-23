@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script><script src="https://cdn.bootcss.com/axios/0.19.0/axios.js"></script>
+    <script>
+      const sub = () => {
+        $.ajax({
+          url: "data/json.json",
+          dataType: "json",
+
+          success(data) {
+            console.log(data);
+          },
+          error(err) {
+            alert(err);
+          }
+        });
+      };
+      const mit=() => {
+        axios.get('data/json.json').then((res) => {
+          console.log(res.data)
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" onclick="mit()" value="提交" />
+  </body>
+</html>

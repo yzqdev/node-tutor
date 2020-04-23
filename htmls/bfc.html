@@ -1,10 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      .fl {
+        float: left;
+        width: 300px;
+        height: 200px;
+        background: #0099ff;
+        border: 3px solid red;
+      }
+
+      .parent {
+        width: 100%;
+        overflow: hidden;
+        border: 3px solid blue;
+      }
+
+      .color-yellow {
+        margin-left: 11%;
+        margin-right: 11%;
+        background: yellow;
+        /*width: 100%;*/
+        height: 300px;
+        /* float: left; */
+        border-radius: 3px;
+        border: 4px solid black;
+      }
+
+      .fr {
+        float: right;
+      }
+
+      .right {
+        width: 10%;
+        height: 400px;
+        float: right;
+        background: green;
+      }
+
+      .left {
+        width: 10%;
+        height: 400px;
+        float: left;
+        background: #ff9900;
+      }
+
+      .floa {
+        overflow: hidden;
+        /*display: flex;*/
+      }
+      .rap {
+        word-wrap: normal;
+        text-overflow: ellipsis;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="fl"></div>
+      <div class="fl"></div>
+      <div class="fl"></div>
+      <div class="fl"></div>
+    </div>
+    <div class="floa">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="color-yellow"></div>
+    </div>
+
+    <div style="position: absolute;">
+      <div
+        style="
+          border: 4px solid red;
+          height: 400px;
+          width: 400px;
+          position: absolute;
+          top: 30px;
+        "
+      >
+        <h1 style="line-height: 5; height: 5;">测试用例</h1>
+        <h2>彻底是非得失</h2>
+      </div>
+    </div>
+  </body>
 </html>

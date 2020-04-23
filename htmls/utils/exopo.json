@@ -1,0 +1,99 @@
+{
+  "webpackStart": {
+    "prefix": "wpstart",
+    "description": "Webpack Snippet Start",
+    "body": [
+      "'use strict';",
+      "",
+      "const path = require('path');",
+      "",
+      "module.exports = {",
+      "\tentry: '${1:./app/index.js}',",
+      "\tcontext: ${2:path.resolve(__dirname)},",
+      "\toutput: {",
+      "\t\tpath: path.resolve(__dirname, '${3:dist}'),",
+      "\t\tfilename: '${4:bundle.js}',",
+      "\t\tpublicPath: '${5:pathOrUrlWhenProductionBuild}'",
+      "\t},",
+      "\tmodule: {",
+      "\t\trules: [",
+      "\t\t]",
+      "\t},",
+      "\tresolve: {",
+      "\t},",
+      "\tdevtool: 'source-map',",
+      "\tplugins: [",
+      "\t]",
+      "};",
+      ""
+    ],
+    "scope": "javascript,typescript"
+  },
+  "webpackModuleAddRule": {
+    "prefix": "wprule",
+    "description": "Add a new rule in rules Array",
+    "body": [ "{", "\ttest: /${reg}/,", "\tloader: '${loader}',", "}" ],
+    "scope": "javascript,typescript"
+  },
+  "requireWebpack": {
+    "prefix": "wprequire",
+    "description": "Require Webpack.",
+    "body": [ "const webpack = require('webpack');" ],
+    "scope": "javascript,typescript"
+  },
+  "addChunkPlugin": {
+    "prefix": "wpochunk",
+    "description": "Add webpack.optimize.CommonsChunkPlugin",
+    "body": [
+      "new webpack.optimize.CommonsChunkPlugin({",
+      "\tname: '${name}',",
+      "\tfilename: '${file}.min.js',",
+      "})"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "addUglifyJSPlugin": {
+    "prefix": "wpougf",
+    "description": "Add webpack.optimize.UglifyJsPlugin",
+    "body": [
+      "new webpack.optimize.UglifyJsPlugin({",
+      "\tcompress: {",
+      "\t\twarnings: false,",
+      "\t\tdrop_console: false",
+      "\t}",
+      "})"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "addDefinePlugin": {
+    "prefix": "wpodef",
+    "description": "Add webpack.DefinePlugin",
+    "body": [
+      "new webpack.DefinePlugin({",
+      "\t'process.env.NODE_ENV': '\"${production}\"',",
+      "})"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "requireExtractTextPlugin": {
+    "prefix": "wprex",
+    "description": "Require Extract Text Plugin",
+    "body": [
+      "const ExtractTextPlugin = require('extract-text-webpack-plugin');"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "addExtractTextPlugin": {
+    "prefix": "wpoex",
+    "description": "Add ExtractTextPlugin",
+    "body": [
+      "new ExtractTextPlugin({",
+      "\tfilename: '${fileName}',",
+      "\tallChunks: true,",
+      "})"
+    ],
+    "scope": "javascript,typescript"
+  }
+}
+
+
