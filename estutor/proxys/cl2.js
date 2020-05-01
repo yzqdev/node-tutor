@@ -2,9 +2,9 @@ const dog = {
   name: `小黄`,
   friends: [
     {
-      name: `小红`
-    }
-  ]
+      name: `小红`,
+    },
+  ],
 };
 
 // 1.首先new一个Proxy对象
@@ -15,13 +15,14 @@ const proxy = new Proxy(dog, {
     console.log(`get被监控到了`);
     return target[property];
   },
-  set(target, property, value) {
+  set(target, property, value, obj) {
     // 4.参数1为上面dog对象，参数2为dog的属性，参数3为设置的新值
     // 有点类似Object.defineProperty
+    console.log(obj);
+    console.log(target, property, value);
     console.log(`set被监控到了`);
     target[property] = value;
-  }
-
+  },
 });
 
 // 那么接下来我们设置一下这个属性

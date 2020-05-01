@@ -2,6 +2,7 @@ const debounce = (fn, delay) => {
   let timer = null;
   return (...args) => {
     clearTimeout(timer);
+    console.log(this);
     timer = setTimeout(() => {
       fn.apply(this, args);
     }, delay);
@@ -20,4 +21,8 @@ const throttle = (fn, delay = 500) => {
   };
 };
 
-debounce(con(), 2000,5,6,7,7);
+function con(...args) {
+  console.log(args);
+  console.log("hello");
+}
+throttle(con, 2000);
