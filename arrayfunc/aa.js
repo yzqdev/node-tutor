@@ -1,24 +1,6 @@
-function Person(name) {
-  this.name = name;
-  let sex = "five";
-  this.getName = function() {
-    console.log(name);
-    console.log(this.name);
-  };
-  let getSex = function() {
-    console.log(this.sex);
-    console.log(sex);
-  };
+const all=(arr,fn=Boolean)=>{
+  return arr.every(fn)
 }
-Person.prototype.setName = function() {
-  console.log("setname");
-};
 
-Person.setSex = function() {
-  console.log("setsex");
-};
-var p=new Person("xiaoming")
-console.log(p.name)
-console.log(p)
-p.setName()
-console.log(p)
+const convToArray=(num,) => [...`${num}`].map((el) => parseInt(el))
+console.log(`%c${convToArray(123456)}`,`color:red;font-size:16px;background:transparent`)
