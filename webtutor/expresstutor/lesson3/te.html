@@ -1,0 +1,179 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>动态表格</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 增加表格头的样式   -->
+    <style type="text/css">
+        #list th {
+            background-color: #06F;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" align="center" width="500PX">
+        <thead>
+            <!-- 创建表格头 -->
+            <tr id="list">
+                <th>选中</th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>年龄</th>
+                <th>地址</th>
+                <th>操作</th>
+            </tr>
+            <!-- 添加全部删除按钮， -->
+            <tr>
+                <td><input type="checkbox" onclick="checkAll(this)" /></td>
+                <td colspan="6"><a href="javascript:void(0)" onclick="delAll()">全部删除</a></td>
+            </tr>
+        </thead>
+        <tbody id="listbody"></tbody>
+    </table>
+    <!-- 用于画一个横线 -->
+    <hr />
+    <!-- 创建form表单  -->
+    <form>
+        <table align="center" border="1" width="300px">
+            <tr>
+                <th>编号</th>
+                <td> <input type="text" id="id" /></td>
+            </tr>
+            <tr>
+                <th>姓名</th>
+                <td> <input type="text" id="name" /></td>
+                </th>
+            <tr>
+                <th>密码</th>
+                <td> <input type="text" id="pass" /></td>
+            </tr>
+            <tr>
+                <th>年龄</th>
+                <td> <input type="text" id="age" /></td>
+            </tr>
+            <tr>
+                <th>住址</th>
+                <td> <input type="text" id="address" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="reset" value="重置" align="center" />
+                    <input type="button" value="添加" align="center" onclick="addlist()" />
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+</body>
+<script type="text/javascript">
+    function addlist() {
+        //获取用户输入
+        var id = document.getElementById("id").value;
+        var name = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
+        var age = document.getElementById("age").value;
+        var address = document.getElementById("address").value;
+        //在上面的列表中添加一行，把内容放在该行1
+        /*
+         <tr>
+            <td><input type="checkbox" name="item"/></td>
+            <td>1</td>
+            <td>张三</td>
+            <td>123456</td>
+            <td>20</td>
+            <td>广州天河</td>
+            <td><a href="javascript:void(0)" onclick="delOne(this)">删除</a></td>
+                javascript:void(0): 相当于让href属性失效！！
+        </tr>
+        */
+        //创建一个tr
+        var tr = document.createElement("tr");
+        //创建td
+        var td1 = document.createElement("td");
+        var input = document.createElement("input");
+        input.setAttribute("type", "checkbox");
+        input.setAttribute("name", "item");
+        td1.appendChild(input);
+
+        var td2 = document.createElement("td");
+        td2.innerHTML = id;
+
+        var td3 = document.createElement("td");
+        td3.innerHTML = name;
+
+        var td4 = document.createElement("td");
+        td4.innerHTML = pass;
+
+        var td5 = document.createElement("td");
+        td5.innerHTML = age;
+
+        var td6 = document.createElement("td");
+        td6.innerHTML = address;
+
+        var td7 = document.createElement("td");
+        var a = document.createElement("a");
+
+        a.setAttribute("href", "javascript:void(0)"); //相当于让href属性失效！
+        a.setAttribute("onclick", "delone(this)")
+        a.innerHTML = "删除";
+        td7.appendChild(a);
+        //将创建的td添加到tr中
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        tr.appendChild(td6);
+        tr.appendChild(td7);
+        //使用appendChild（tr）方法，将tr添加到listbody中
+        //其中获取的listbody是要将表格添加的位置的id
+        var listbody = document.getElementById("listbody");
+        listbody.appendChild(tr);
+
+    }
+    //删除单行
+    function delone(d) {
+        var tr = d.parentNode.parentNode;
+        var listbody = document.getElementById("listbody");
+        listbody.removeChild(tr);
+
+    }
+    //全选
+
+    function checkAll(c) {
+        //得到全选按钮的状态
+        var status = c.checked;
+        //得到name=item的标签
+        var items = document.getElementsByName("item");
+        for (var i = 0; i < items.length; i++) {
+            //将全选按钮的状态给所有的items
+            items[i].checked = status;
+
+        }
+    }
+    //删除选中部分，注意变量，每删除一个，要将变量减一，否则，将导致变量溢出，浏览器死机
+    function delAll() {
+
+        var list = document.getElementById("listbody");
+        //拿到所有的item
+        var items = document.getElementsByName("item");
+        for (var j = 0; j < items.length; j++) {
+
+            if (items[j].checked) //如果item被选中
+            {
+
+                var tr = items[j].parentNode.parentNode;
+                list.removeChild(tr);
+                j--;
+            }
+        }
+    }
+</script>
+
+</html>

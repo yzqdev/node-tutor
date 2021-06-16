@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<button id="run">Run</button>
+<div>类似的开始了对方</div>
+<script>
+    $(function () {
+            $('#btn').click(function () {
+                $.each([0, 1, 2], function (i, n) {
+                    console.log('item' + i + ';' + n);
+                })
+            })
+        }
+    )
+</script>
+</body>
+</html>
