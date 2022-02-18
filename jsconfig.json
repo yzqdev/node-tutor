@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "checkJs": true,
+
+    "allowSyntheticDefaultImports": true,
+
+    "lib": ["es6"]
+  },
+  "exclude": ["node_modules"],
+  "include": ["model/**", "service/**"],
+  "typeAcquisition": {
+    "include": ["express", "node", "lodash", "licia"]
+  }
+}
