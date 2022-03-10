@@ -14,8 +14,8 @@
     "node": true,
     "commonjs": true
   },
-  "extends": ["plugin:prettier/recommended"],
-  //  "extends": "eslint:recommended",
+//  "extends": ["plugin:prettier/recommended"],
+    "extends": "eslint:recommended",
   "rules": {
     "no-var": "error",
     "linebreak-style": ["error", "unix"], // override default options for rules from base configurations
