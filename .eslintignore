@@ -1,4 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
+
 ### Example user template template
 ### Example user template
 
@@ -9,6 +9,6 @@ out
 gen
 src/lib
 dist
-jquery-3.4.1.min.js
-bootstap.bundle.min.js
+
+
 babel.config.js
