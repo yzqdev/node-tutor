@@ -1,0 +1,37 @@
+{
+  "name": "tcli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "tcli": "dist/tcli.mjs"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/tcli.ts src/index.ts --format esm  ",
+    "build:ts": "swc src -d dist",
+    "dev": "node dist/tcli.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cli-table": "^0.3.11",
+    "commander": "^9.3.0",
+    "execa": "^6.1.0",
+    "inquirer": "^9.0.0",
+    "picocolors": "^1.0.0",
+    "prettier": "^2.7.1",
+    "prompts": "^2.4.2",
+    "regedit": "^5.1.1",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.205",
+    "@types/inquirer": "^8.2.1",
+    "@types/node": "^18.0.0",
+    "@types/shelljs": "^0.8.11",
+    "tsup": "^6.1.2"
+  }
+}

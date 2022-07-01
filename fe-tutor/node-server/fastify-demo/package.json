@@ -1,0 +1,12 @@
+{
+  "name": "fastify-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "esno index.ts"
+  },
+  "dependencies": {
+    "fastify": "^4.2.0"
+  }
+}

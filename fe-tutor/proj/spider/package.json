@@ -1,0 +1,17 @@
+{
+  "name": "spider",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yzqdev",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "node index.mjs",
+    "weather": "node getWeather.js"
+  },
+  "dependencies": {
+    "axios": "latest",
+    "cheerio": "latest",
+    "puppeteer": "latest"
+  }
+}

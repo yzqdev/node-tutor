@@ -1,0 +1,29 @@
+{
+	"dir": "./",
+	"childFiles": [
+		{
+			"short": "-dir-tree.json",
+			"full": ".//-dir-tree.json"
+		},
+		{
+			"short": "index.js",
+			"full": ".//index.js"
+		},
+		{
+			"short": "package.json",
+			"full": ".//package.json"
+		}
+	],
+	"childDir": {
+		"modules": {
+			"dir": ".//modules",
+			"childFiles": [
+				{
+					"short": "a.md",
+					"full": ".//modules/a.md"
+				}
+			],
+			"childDir": {}
+		}
+	}
+}

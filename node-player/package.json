@@ -1,0 +1,24 @@
+{
+  "name": "node-player",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "esno index.ts",
+    "d": "node u.js"
+  },
+  "dependencies": {
+    "@types/node": "^18.0.0",
+    "axios": "^0.27.2",
+    "got": "^12.1.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "node-notifier": "^10.0.1",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "esno": "^0.16.3"
+  }
+}

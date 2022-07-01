@@ -1,0 +1,38 @@
+{
+  "name": "fetutor",
+  "version": "1.0.0",
+  "description": "默认工作区间dev分支",
+  "private": "true",
+  "main": "index.ts",
+
+  "workspaces": [
+    "demo/",
+    "node-server/*",
+    "es",
+    "proj/*"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "docs:dev": "vuepress dev docs",
+    "server:dev": "yarn workspace node-server dev",
+    "koa": "yarn workspace koa-demo dev",
+    "exp": "yarn workspace express-demo dev",
+"lint": "prettier --write proj/**/**.ts es/**/*.ts node-server/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yzqdev/fetutor.git"
+  },
+  "author": "yzq",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.7.4",
+    "prettier": "^2.7.1"
+  }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>element-plus</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/axios"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/element-plus"></script>
+</head>
+<body>
+<div id="app">
+  <el-button type="primary" @click="showMsg">element-plus</el-button>
+</div>
+
+<script>
+
+
+  let obj = [
+    [
+      "_MHYUUID",
+      "3648406e-0cb5-4408-8770-7096cbce3297"
+    ],
+    [
+      "UM_distinctid",
+      "180264ee5c488f-0bca935bfbb15e-1734337f-1fa400-180264ee5c5ae0"
+    ],
+    [
+      "_ga",
+      "GA1.2.364660425.1649910147"
+    ],
+    [
+      "_gid",
+      "GA1.2.1026045564.1649910147"
+    ],
+    [
+      "ltoken",
+      "XFX5Sh6CU8lDLTrY1o5ZHTXfOZZw188EfjOdgsqh"
+    ],
+    [
+      "ltuid",
+      "281049291"
+    ],
+    [
+      "cookie_token",
+      "PiBhwU257RWsKrKvqfpfNLLCNpvQr5e5r0pmj33p"
+    ],
+    [
+      "account_id",
+      "281049291"
+    ],
+    [
+      "CNZZDATA1275023096",
+      "1080413717-1649900971-%7C1649913412"
+    ],
+    [
+      "_gat",
+      "1"
+    ]
+  ]
+
+
+  const Cookie =
+    {
+      get: name => {
+        let c = document.cookie.match(`(?:(?:^|.*; *)${name} *= *([^;]*).*$)|^.*$`)[1]
+        if (c) return decodeURIComponent(c)
+      }
+      , set: (name, value, opts = {}) => {
+        if (opts.days) opts['max-age'] = opts.days * 60 * 60 * 24
+        opts = Object.entries(opts).reduce((str, [k, v]) => str + `; ${k}=${v}`, '')
+        document.cookie = `${name}=${encodeURIComponent(value)}` + opts
+      }
+      , delete: (name, path) => Cookie.set(name, '', -1, path)
+    }
+
+  function setCookies(cookieMap) {
+    cookieMap.forEach((val) => {
+      Cookie.set(val[0], val[1])
+    })
+
+  }
+
+  setCookies(obj)
+  const app = Vue.createApp({
+    data() {
+      return {
+        msg: "hhhhh",
+      };
+    },
+    methods: {
+      showMsg() {
+
+        fetch('https://bbs-api.mihoyo.com/notification/wapi/getUserGameUnreadCount?gids=2', {
+          method: 'GET',
+          mode: 'no-cors',
+          credentials: 'include',
+          headers: {
+            'DS': '1649915798,yYNDra,d2ff5dd19a72b000fe2f5d1d9ac78c48',
+            'x-rpc-app_version': '2.3.0',
+            'x-rpc-client_type': '5',
+            "x-rpc-device_id": "bd7f912e-908c-3692-a520-e70206823495",
+
+          },
+
+        }).then((json) => {
+          return json.json()
+        }).then((res) => {
+          console.log(res)
+        })
+      },
+    },
+  });
+  app.use(ElementPlus);
+  app.mount("#app");
+</script>
+</body>
+</html>

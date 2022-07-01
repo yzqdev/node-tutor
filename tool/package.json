@@ -1,0 +1,48 @@
+{
+  "name": "tool",
+  "version": "1.0.0",
+  "author": {
+    "name": "yzqdev",
+    "url": "https://github.com/yzqdev"
+  },
+  "license": "MIT",
+  "files": [
+    "src",
+    "dist",
+    "vendor"
+  ],
+  "main": "dist/tool.mjs",
+  "module": "dist/tool.mjs",
+  "type": "module",
+  "types": "dist/tool.d.ts",
+  "bin": {
+    "tool": "dist/tool.mjs"
+  },
+  "scripts": {
+    "dev": "node dist/tool.mjs",
+    "clean": "rimraf dist",
+    "build": "unbuild",
+    "q": "node play/index.mjs",
+    "lint": "prettier --write src/**/*.{ts,js}"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cli-table": "^0.3.11",
+    "commander": "^9.3.0",
+    "execa": "^6.1.0",
+    "inquirer": "^9.0.0",
+    "picocolors": "^1.0.0",
+    "prettier": "^2.7.1",
+    "prompts": "^2.4.2",
+    "regedit": "^5.1.1",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.1",
+    "@types/node": "^18.0.0",
+    "@types/shelljs": "^0.8.11",
+    "unbuild": "^0.7.4"
+  }
+}

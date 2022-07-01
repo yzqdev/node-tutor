@@ -1,0 +1,19 @@
+{
+  "name": "envt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "esno index.ts",
+    "build": "tsup index.ts",
+    "envt": "node -r dotenv/config dist/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "esno": "^0.16.3",
+    "tsup": "^6.1.2"
+  }
+}
