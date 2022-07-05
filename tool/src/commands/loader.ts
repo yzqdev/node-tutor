@@ -7,10 +7,12 @@ import { HelpCommand } from "./helpCommand";
 import { RegCommand } from "./regCommand";
 import { FileCommand } from "./fileCommand";
 import { CmdCommand } from "./cmdCommand";
+import {ServeCommand} from "./serveCommand";
 
 export class CommandLoader {
   public static load(program: Command): void {
     new DefaultOptions().load(program);
+    new ServeCommand().load(program)
     new HelpCommand().load(program);
     new TestCommand().load(program);
     new MarkCommand().load(program);
