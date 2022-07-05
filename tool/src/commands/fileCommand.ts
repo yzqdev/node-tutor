@@ -7,6 +7,7 @@ import pc from "picocolors";
 import shell from "shelljs";
 import * as path from "path";
 import { WebpInterface } from "../interfaces";
+import {RenameOption} from "../interfaces/Ioption";
 
 export class FileCommand extends AbstractCommand {
   load(program: Command): void {
@@ -26,9 +27,12 @@ export class FileCommand extends AbstractCommand {
       });
     fileCmd
       .command("rename")
+        .option("-f, --from <file>",'输入文件'
+            ).option("-o, --out <file>",'输出文件')
       .description("转为ts")
-      .action(() => {
-        renameToTs("./");
+      .action((options:RenameOption) => {
+          console.log(options)
+        renameToTs("./",options);
       });
     fileCmd
       .command("md5 <file>")

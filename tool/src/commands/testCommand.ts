@@ -1,16 +1,19 @@
 import { AbstractCommand } from "./abstractCommand";
 import { Command } from "commander";
+import pc from 'picocolors'
+import {getToolrc} from "../utils/getToolrc";
 export class TestCommand extends AbstractCommand {
   load(program: Command): void {
     let test = program
-      .command("test <option>")
+      .command("test")
       .option("-r, --ret")
-      .action(async (option) => {
-        console.log(option);
+      .action(async (cmd ) => {
+        console.log(cmd);
       });
 
     test.command("md").action(() => {
-      console.log("md");
+      let conf=getToolrc()
+      console.log(pc.red(JSON.stringify(conf)))
     });
 
     // program

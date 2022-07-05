@@ -4,6 +4,7 @@ import { SingleDirPath } from "../interfaces/mdInterface";
 import pc from "picocolors";
 import shell from "shelljs";
 import { WebpInterface } from "../interfaces";
+import {RenameOption} from "../interfaces/Ioption";
 
 export function genTxt(dir: string) {
   let files = fs.readdirSync(dir);
@@ -27,8 +28,25 @@ export function genName(dir: string) {
   fs.writeFileSync("name.txt", arr.join("\n"));
 }
 
-function fileRename(filePath: string) {
-  let shouldRenameExt = [".mjs", ".js", ".cjs"];
+function fileRename(filePath: string,options:RenameOption) {
+  let shouldRenameExt =options.from?options.from.split(','): [".mjs", ".js", ".cjs"];
+
+  let renameTo=options.to?options.to:'.ts'
+if (shouldRenameExt) {
+
+  for (let item of shouldRenameExt) {
+    console.log(item)
+    if (!item.includes('.')) {
+     throw  new Error("请输入输入参数后缀,类似 .txt,.js")
+    }
+  }
+}
+if (options.to) {
+  if (!options.to.includes('.')) {
+    throw  new Error("请输入参数后缀,类似 .txt,.js")
+  }
+}
+
   let excludeDir = ["node_modules", ".vuepress"];
   //   console.log(8977)
   //根据文件路径读取文件，返回文件列表
@@ -49,13 +67,13 @@ function fileRename(filePath: string) {
             throw eror;
           }
 
+
           let isFile = stats.isFile(); //是文件
           let isDir = stats.isDirectory(); //是文件夹
           if (isFile) {
-            //这里请根据需要替换后缀名，我的是要把.blv替换成.flv
 
             if (shouldRenameExt.includes(path.extname(filedir))) {
-              fs.rename(filedir, filedir.replace(path.extname(filedir), ".ts"), (err) => {
+              fs.rename(filedir, filedir.replace(path.extname(filedir), renameTo), (err) => {
                 if (err) {
                   throw err;
                 }
@@ -65,7 +83,7 @@ function fileRename(filePath: string) {
           }
           if (isDir) {
             if (!excludeDir.includes(path.basename(filedir))) {
-              fileRename(filedir);
+              fileRename(filedir,options);
             } //递归，如果是文件夹，就继续遍历该文件夹下面的文件
           }
         });
@@ -74,10 +92,11 @@ function fileRename(filePath: string) {
   });
 }
 
-export function renameToTs(dir: string) {
+export function renameToTs(dir: string,options:RenameOption) {
+
   let filePath = path.resolve(dir);
   //调用文件遍历方法
-  fileRename(filePath);
+  fileRename(filePath,options);
 }
 
 export function deleteFileRecurse(ext: string, dir: string) {

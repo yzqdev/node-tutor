@@ -61,4 +61,4 @@ for (let i = 1; i < 41; i++) {
 Clist.display(1, null);
 //通过remove返回最后杀死后的结果其中一个节点
 Clist.display(0, Clist.remove()); //16,31
-export {};
+

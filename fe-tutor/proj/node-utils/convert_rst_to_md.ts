@@ -2,7 +2,7 @@
 import { exec } from "child_process";
 import fs from "node:fs";
 import path from "node:path";
-function readFileList(dir: string, filesList = []) {
+function readFileList(dir: string, filesList:any[] = []) {
   const files = fs.readdirSync(dir);
   let dirPath = { name: path.resolve(dir).split("\\").pop(), files: [] };
   files.forEach((item, index) => {
@@ -23,7 +23,7 @@ function readFileList(dir: string, filesList = []) {
   filesList.push(dirPath);
   return filesList;
 }
-let filesList = [];
+let filesList:any[] = [];
 readFileList("./", filesList);
 //
 console.log(filesList);
