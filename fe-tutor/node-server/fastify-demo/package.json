@@ -4,9 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "esno index.ts"
+    "dev": "esno watch index.ts"
   },
   "dependencies": {
-    "fastify": "^4.2.0"
+    "fastify": "^4.2.0",
+    "@fastify/static": "^6.4.0" ,
+    "serve-index":"^1.9.1","fastify-plugin":"^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.3"
   }
 }
