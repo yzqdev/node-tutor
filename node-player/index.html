@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+ <caption><u>1.</u> Test page's <b>< iframe src='csplite.com'></b> is ancestor for < iframe <span class='directive'>frame-ancestors</span>></caption>
+ <tr><td>frame-acentors: 
+    <input type='button' value='no CSP' onclick='Reload(this, "F1")' disabled>
+    <input type='button' value="'none'" onclick='Reload(this, "F1")'>
+    <input type='button' value='http:' onclick='Reload(this, "F1")'>
+    <input type='button' value='https:' onclick='Reload(this, "F1")'>
+    <input type='button' value='csplite.com' onclick='Reload(this, "F1")'>
+    <input type='button' value='*' onclick='Reload(this, "F1")'>
+  </td></tr>
+ <tr><td><iframe id='F1'
+    src='//csp.csplite.com/tst/frame_ancestors.php?var=IFRAME%20src'
+    ></iframe></td></tr>
+</table>
+<br>
+
+<table>
+ <caption><u>1a.</u> <b>< iframe srcdoc="HTML"></b> is ancestor for < iframe <span class='directive'>frame-ancestors</span>></caption>
+ <tr><td>frame-acentors: 
+    <input type='button' value='no CSP' onclick='Reload(this, "F1a")' disabled>
+    <input type='button' value="'none'" onclick='Reload(this, "F1a")'>
+    <input type='button' value='http:' onclick='Reload(this, "F1a")'>
+    <input type='button' value='https:' onclick='Reload(this, "F1a")'>
+    <input type='button' value='csplite.com' onclick='Reload(this, "F1a")'>
+    <input type='button' value='*' onclick='Reload(this, "F1a")'>
+  </td></tr>
+ <tr><td><iframe id='F1a'
+    srcdoc="< iframe srcdoc='HTML'><br><iframe src='//csp.csplite.com/tst/frame_ancestors.php?var=IFRAME%20srcdoc' width='90%' height='50'></iframe><style>body {background-color:#cfdede;font-size:12px;text-align:center}</style>"
+    ></iframe></td></tr>
+</table>
+<br>
+
+<table>
+ <caption><u>2.</u> Test page's <b>< iframe src='csplite.com'></b> is ancestor for < object <span class='directive'>frame-ancestors</span>></caption>
+ <tr><td>frame-acentors: 
+    <input type='button' value='no CSP' onclick='Reload(this, "O")' disabled>
+    <input type='button' value="'none'" onclick='Reload(this, "O")'>
+    <input type='button' value='http:' onclick='Reload(this, "O")'>
+    <input type='button' value='https:' onclick='Reload(this, "O")'>
+    <input type='button' value='csplite.com' onclick='Reload(this, "O")'>
+    <input type='button' value='*' onclick='Reload(this, "O")'>
+  </td></tr>
+ <tr><td><object data='//csp.csplite.com/tst/frame_ancestors.php?var=OBJECT' id='O' border='2'>failed</object></td> </tr>
+</table>
+<br>
+
+<table>
+ <caption><u>3.</u> Test page's <b>< iframe src='csplite.com'></b> is ancestor for < embed <span class='directive'>frame-ancestors</span>></caption>
+ <tr><td>frame-acentors: 
+    <input type='button' value='no CSP' onclick='Reload(this, "E")' disabled>
+    <input type='button' value="'none'" onclick='Reload(this, "E")'>
+    <input type='button' value='http:' onclick='Reload(this, "E")'>
+    <input type='button' value='https:' onclick='Reload(this, "E")'>
+    <input type='button' value='csplite.com' onclick='Reload(this, "E")'>
+    <input type='button' value='*' onclick='Reload(this, "E")'>
+  </td></tr>
+ <tr><td><embed src='//csp.csplite.com/tst/frame_ancestors.php?var=EMBED' id='E' border='2'></embed></td></tr>
+</table>
+
+<style>
+ input:disabled { font-weight:bold; color:green; border:none; outline:none; }
+ table { margin:0 auto; width:98%; border:1px solid #c2c2c2; }
+ td { text-align:center; background-color:#e2e2e2; }
+ td > iframe, td > embed, td > object {width:98%; height:90px; overflow:hidden; }
+ .directive { font-size:90%; color:Brown; }
+</style>
+
+<script>
+function Reload(btn, id) {
+  window.top.rpt_frame_reload('rpt221'); // Reload reports iframe to receive reports again; parent window funct
+  var el = document.getElementById(id);                    // Container IFRAME/OBJECT/EMBED
+  if (el === null) { alert('Element `'+ id + '` not found');  return; }
+
+  var url = '//csp.csplite.com/tst/frame_ancestors.php';   // Start of url for get content
+  var hash = get_query_var('hash');
+  if (hash === null) { alert('No hash in url');  return; } // It should always presence
+  else url += '?hash=' + hash;                             // We need it to for report-uri
+  if (btn.value !='no CSP')                                // 'no CSP' will disable header
+    url += '&csp=' + btn.value.replace(/'/g, '`');         // Add &csp= if presents; ' in 'none' coding as `
+  url += '&var=' + el.tagName;
+
+  if (el.tagName =='IFRAME') {
+    if (el.srcdoc !=='') {
+      url += '%20srcdoc';                                  // Mark with 'srcdoc'
+      var html = el.srcdoc.replace(/src='[^']+'/, "src='" + url + "'"); // Change nested iframe src; srcdoc is in " and uses ' inside
+      el.srcdoc = html;                                    // Reload <iframe srcdoc=
+      }
+    else {
+      url += '%20src';                                     // Mark with 'src'
+      el.src = url;                                        // Reload container via src=
+      }
+    }
+  else {                                                   // OBJECT/EMBED
+    if (el.tagName=='OBJECT') el.data = url;               // Reload <object> via data=
+    else el.src = url;                                     // Reload <embed> via src=
+    }
+
+  // Set buttons state:
+  var td = btn.parentElement;                              // Always DOM-element unlike .parentNode
+  var btns = td.children;
+  for (var i=0; i<btns.length; i++)  btns[i].disabled = false; // Enable all btns
+  btn.disabled = true;                                     // Disable the btn been pressed
+  }
+
+function get_query_var(variable) {                         // frame_test.php?ID=221&hash=713ce695b6...
+  var query = window.location.search.substring(1);         // self-iframe url
+  var vars = query.split('&');
+  for (var i=0; i<vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (decodeURIComponent(pair[0]) == variable)  return decodeURIComponent(pair[1]);
+    }
+  return null;                                             //  Query variable not found
+  }
+</script>
+</body>
+</html>

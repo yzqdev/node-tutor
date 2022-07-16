@@ -8,7 +8,7 @@
     "zcli": "dist/zcli.cjs"
   },
   "scripts": {
-    "dev": "yarn build&&node dist/zcli.cjs",
+    "dev": "pnpm build&&node dist/zcli.cjs",
     "build": "zx ./scripts/build.mjs"
   },
   "dependencies": {
