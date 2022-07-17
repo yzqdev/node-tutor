@@ -1,0 +1,12 @@
+prefer-workspace-packages: true
+packages:
+  # all packages in direct subdirs of packages/
+
+  - 'node-server/**'
+  - 'es'
+  - 'proj/*'
+  - 'packages/*'
+  # all packages in subdirs of components/
+  - 'components/**'
+  # exclude packages that are inside test directories
+  - '!**/test/**'

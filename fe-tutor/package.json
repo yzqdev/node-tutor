@@ -4,21 +4,15 @@
   "description": "默认工作区间dev分支",
   "private": "true",
   "main": "index.ts",
-  "workspaces": [
-    "demo/",
-    "node-server/*",
-    "es",
-    "proj/*"
-  ],
   "scripts": {
     "dev": "vite",
     "docs:build": "vuepress build docs",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
     "docs:dev": "vuepress dev docs",
-    "server:dev": "yarn workspace node-server dev",
-    "koa": "yarn workspace koa-demo dev",
-    "f": "yarn workspace fastify-demo dev",
-    "exp": "yarn workspace express-demo dev",
+    "server:dev": "pnpm workspace node-server dev",
+    "koa": "pnpm -C node-server/koa-demo   dev ",
+    "f": "pnpm workspace fastify-demo dev",
+    "exp": "pnpm workspace express-demo dev",
     "lint": "prettier --write proj/**/**.ts es/**/*.ts node-server/**/*.ts"
   },
   "repository": {
