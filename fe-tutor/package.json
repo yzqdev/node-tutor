@@ -9,10 +9,13 @@
     "docs:build": "vuepress build docs",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
     "docs:dev": "vuepress dev docs",
-    "server:dev": "pnpm workspace node-server dev",
+    "server:dev": "pnpm -C node-server dev",
     "koa": "pnpm -C node-server/koa-demo   dev ",
-    "f": "pnpm workspace fastify-demo dev",
-    "exp": "pnpm workspace express-demo dev",
+    "f": "pnpm -C node-server/fastify-demo dev",
+    "exp": "pnpm -C node-server/express-demo dev",
+    "play:s":"pnpm -C playground/server dev",
+    "play":"pnpm -C playground/web dev",
+    "code:dev":"pnpm -C playground/codeplayground dev",
     "lint": "prettier --write proj/**/**.ts es/**/*.ts node-server/**/*.ts"
   },
   "repository": {
