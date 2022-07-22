@@ -49,7 +49,7 @@ export class MarkCommand extends AbstractCommand {
 
     md.command("img")
       .argument("<file>", "要转换的文件")
-
+.description("下载md文件里面的图片")
       .action(async (file) => {
         await genMarkdownImgs(file);
       });

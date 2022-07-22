@@ -8,3 +8,8 @@ export interface ServeOption {
     cors: boolean
     dir :string
 }
+export interface HomeOption{
+    python?:string
+    git?:string
+    dart?:string
+}

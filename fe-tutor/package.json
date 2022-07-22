@@ -16,6 +16,7 @@
     "play:s":"pnpm -C playground/server dev",
     "play":"pnpm -C playground/web dev",
     "code:dev":"pnpm -C playground/codeplayground dev",
+
     "lint": "prettier --write proj/**/**.ts es/**/*.ts node-server/**/*.ts"
   },
   "repository": {

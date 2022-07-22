@@ -8,7 +8,7 @@ import { RegCommand } from "./regCommand";
 import { FileCommand } from "./fileCommand";
 import { CmdCommand } from "./cmdCommand";
 import {ServeCommand} from "./serveCommand";
-
+import { HomeCommand } from "./homeCommand";
 export class CommandLoader {
   public static load(program: Command): void {
     new DefaultOptions().load(program);
@@ -18,6 +18,7 @@ export class CommandLoader {
     new MarkCommand().load(program);
     new RegCommand().load(program);
     new FileCommand().load(program);
+    new HomeCommand().load(program)
     new CmdCommand().load(program);
     this.handleInvalidCommand(program);
   }

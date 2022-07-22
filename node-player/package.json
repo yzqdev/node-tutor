@@ -5,13 +5,14 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "esno index.ts",
+    "dev": "esno src/main.ts",
     "d": "node u.js"
   },
   "dependencies": {
-    "@types/node": "^18.0.0",
+    "@types/cli-progress": "^3.11.0",
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12",
+    "cli-progress": "^3.11.2",
     "got": "^12.1.0",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
@@ -20,6 +21,8 @@
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",
-    "esno": "^0.16.3"
+    "@types/node": "^18.0.0",
+    "esno": "^0.16.3",
+    "tsup": "^6.1.3"
   }
 }
