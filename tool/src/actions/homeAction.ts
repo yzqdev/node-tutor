@@ -3,9 +3,17 @@ import open from "open";
 import got from "got";
  
 export async function openPypiHome(pkg: string) {
-  
-  let res = await got(`https://pypi.python.org/pypi/${pkg}/json`).json();
-  open(res.info.home_page);
+  let res
+   try {
+     res = await got(`https://pypi.python.org/pypi/${pkg}/json`, {
+       timeout: {
+         request: 3000,
+       },
+     }).json();
+     open(res.info.home_page);
+   } catch (error) {
+    open(`https://pypi.org/project/${pkg}`);
+   }
 }
 export async function openPub(pkg:string) {
     let res = await got(`https://pub.flutter-io.cn/api/packages/${pkg}`).json();

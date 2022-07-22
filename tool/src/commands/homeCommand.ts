@@ -1,6 +1,5 @@
 import { Command } from "commander";
-import shell, { ShellString } from "shelljs";
-import open from "open";
+import pc from 'picocolors'
 import { AbstractCommand } from "./abstractCommand";
 import { HomeOption } from "../interfaces/Ioption";
 import { openGit, openPub, openPypiHome } from "../actions/homeAction";
@@ -16,12 +15,15 @@ export class HomeCommand extends AbstractCommand {
       .action((param: HomeOption) => {
         
         if (param.python) {
+            console.log(pc.cyan('python仓库'));
           openPypiHome(param.python);
         }
         if (param.dart) {
+              console.log(pc.cyan("dart仓库"));
             openPub(param.dart)
         }
         if(param.git){
+            console.log(pc.cyan("git仓库"));
           openGit();
         }
       });
